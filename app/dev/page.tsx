@@ -1,5 +1,6 @@
 'use client';
 import { FileUploader } from '@/components/custom/FileUploader';
+import { FilterBar } from '@/components/custom/FilterBar';
 import { SummaryCards } from '@/components/custom/SummaryCards';
 import { TransactionTable } from '@/components/custom/TransactionTable';
 
@@ -32,6 +33,12 @@ export default function devPage() {
     <div className="p-8">
       <SummaryCards summary={mockSummary} />
       <FileUploader onParsed={(res) => console.log(res)} />
+      <FilterBar
+        filter="all"
+        search=""
+        onFilter={(value) => console.log(value)}
+        onSearch={(value) => console.log(value)}
+      />
       <TransactionTable transactions={mockTransactions} />
     </div>
   );
