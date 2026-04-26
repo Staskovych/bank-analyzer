@@ -1,6 +1,7 @@
 'use client';
 import { FileUploader } from '@/components/custom/FileUploader';
 import { SummaryCards } from '@/components/custom/SummaryCards';
+import { TransactionTable } from '@/components/custom/TransactionTable';
 
 const mockSummary = {
   totalIncome: 100000,
@@ -9,11 +10,29 @@ const mockSummary = {
   count: 10,
 };
 
+const mockTransactions = [
+  {
+    date: '2025-01-03',
+    counterparty: 'ТОВ Альфа',
+    description: 'Оплата за послуги',
+    amount: 18500,
+    type: 'income' as const,
+  },
+  {
+    date: '2025-01-04',
+    counterparty: 'Сільпо',
+    description: 'Продукти',
+    amount: -2213,
+    type: 'expense' as const,
+  },
+];
+
 export default function devPage() {
   return (
     <div className="p-8">
       <SummaryCards summary={mockSummary} />
       <FileUploader onParsed={(res) => console.log(res)} />
+      <TransactionTable transactions={mockTransactions} />
     </div>
   );
 }
