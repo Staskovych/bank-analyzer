@@ -1,4 +1,5 @@
 'use client';
+import { FileUploader } from '@/components/custom/FileUploader';
 import { SummaryCards } from '@/components/custom/SummaryCards';
 
 const mockSummary = {
@@ -12,6 +13,7 @@ export default function devPage() {
   return (
     <div className="p-8">
       <SummaryCards summary={mockSummary} />
+      <FileUploader onParsed={(res) => console.log(res)} />
     </div>
   );
 }
