@@ -3,43 +3,35 @@ import { FileUploader } from '@/components/custom/FileUploader';
 import { FilterBar } from '@/components/custom/FilterBar';
 import { SummaryCards } from '@/components/custom/SummaryCards';
 import { TransactionTable } from '@/components/custom/TransactionTable';
+import { useStatement } from '@/hooks/useStatement';
+import { calculateSummary } from '@/lib/statement';
 
-const mockSummary = {
-  totalIncome: 100000,
-  totalExpense: 50000,
-  netResult: 50000,
-  count: 10,
-};
+export default function DevPage() {
+  const {
+    parseResult,
+    filter,
+    search,
+    filteredTransactions,
+    setData,
+    setFilter,
+    setSearch,
+  } = useStatement();
 
-const mockTransactions = [
-  {
-    date: '2025-01-03',
-    counterparty: 'ТОВ Альфа',
-    description: 'Оплата за послуги',
-    amount: 18500,
-    type: 'income' as const,
-  },
-  {
-    date: '2025-01-04',
-    counterparty: 'Сільпо',
-    description: 'Продукти',
-    amount: -2213,
-    type: 'expense' as const,
-  },
-];
+  const summary = parseResult
+    ? calculateSummary(parseResult.transactions)
+    : null;
 
-export default function devPage() {
   return (
     <div className="p-8">
-      <SummaryCards summary={mockSummary} />
-      <FileUploader onParsed={(res) => console.log(res)} />
+      {summary && <SummaryCards summary={summary} />}
+      <FileUploader onParsed={setData} />
       <FilterBar
-        filter="all"
-        search=""
-        onFilter={(value) => console.log(value)}
-        onSearch={(value) => console.log(value)}
+        filter={filter}
+        search={search}
+        onFilter={setFilter}
+        onSearch={setSearch}
       />
-      <TransactionTable transactions={mockTransactions} />
+      <TransactionTable transactions={filteredTransactions} />
     </div>
   );
 }
