@@ -24,3 +24,12 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ```bash
 npm run test
 ```
+
+## Preview
+
+![Bank Statement Analyzer](public/screenshot.png)
+
+## Notes
+
+Найбільше часу пішло на реалізацію CSV-парсера — інтеграція papaparse з Zod-валідацією
+`useReducer` патерн — складніший за `useState` але дає кращу структуру для пов'язаних станів
