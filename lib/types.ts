@@ -18,3 +18,8 @@ export interface Summary {
   netResult: number;
   count: number;
 }
+
+export interface CounterpartyStat {
+  name: string;
+  total: number;
+}
