@@ -1,5 +1,9 @@
 # Bank Statement Analyzer
 
+## Preview
+
+![Bank Statement Analyzer](public/screenshot.png)
+
 An application for analyzing bank statements in CSV format.
 
 ## Features
@@ -24,10 +28,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ```bash
 npm run test
 ```
-
-## Preview
-
-![Bank Statement Analyzer](public/screenshot.png)
 
 ## Notes
 
