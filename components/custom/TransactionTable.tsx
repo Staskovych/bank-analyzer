@@ -32,8 +32,8 @@ export function TransactionTable({ transactions }: Props) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {transactions.map((t, index) => (
-          <TableRow key={index}>
+        {transactions.map((t) => (
+          <TableRow key={t.id}>
             <TableCell>{t.date}</TableCell>
             <TableCell>{t.counterparty}</TableCell>
             <TableCell>{t.description}</TableCell>

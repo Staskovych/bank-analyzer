@@ -14,12 +14,13 @@ export function parseCSV(text: string): ParseResult {
   const transactions: Transaction[] = [];
   const errors: string[] = [];
 
-  parsed.data.forEach((row) => {
+  parsed.data.forEach((row, index) => {
     const result = parserSchema.safeParse(row);
 
     if (result.success === true) {
       const { date, counterparty, description, amount } = result.data;
       transactions.push({
+        id: index + 1,
         date,
         counterparty,
         description,
