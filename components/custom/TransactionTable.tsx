@@ -24,11 +24,11 @@ export function TransactionTable({ transactions }: Props) {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Дата</TableHead>
-          <TableHead>Контрагент</TableHead>
+          <TableHead className="w-32">Дата</TableHead>
+          <TableHead className="w-48">Контрагент</TableHead>
           <TableHead>Призначення</TableHead>
-          <TableHead>Тип</TableHead>
-          <TableHead>Сума</TableHead>
+          <TableHead className="w-24">Тип</TableHead>
+          <TableHead className="w-36 text-right">Сума</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -43,9 +43,7 @@ export function TransactionTable({ transactions }: Props) {
               </Badge>
             </TableCell>
             <TableCell
-              className={
-                t.type === 'income' ? 'text-green-600' : 'text-red-600'
-              }>
+              className={`text-right ${t.type === 'income' ? 'text-green-600' : 'text-red-600'}`}>
               {fmt(t.amount)}
             </TableCell>
           </TableRow>

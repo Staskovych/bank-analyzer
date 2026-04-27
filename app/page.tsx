@@ -29,7 +29,7 @@ export default function Home() {
     : [];
 
   return (
-    <div className="p-8">
+    <div className="p-8 space-y-6">
       <h1 className="text-3xl font-bold text-center">
         Аналізатор банківської виписки
       </h1>
