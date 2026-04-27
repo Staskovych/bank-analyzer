@@ -2,7 +2,7 @@
 
 ## Preview
 
-![Bank Statement Analyzer](public/screenshot.png)
+![Bank Statement Analyzer](public/Screenshot.png)
 
 An application for analyzing bank statements in CSV format.
 
